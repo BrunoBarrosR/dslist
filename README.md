@@ -1,3 +1,39 @@
+# 🕹️ Projeto DSLIST
+
+Uma aplicação Java com Spring Boot desenvolvida para listar jogos e organizá-los em listas personalizadas.  
+Foi parte de um estudo prático de APIs REST, deploy em nuvem e integração contínua.
+
+---
+
+## 🚀 Tecnologias utilizadas
+
+- Java 17
+- Spring Boot
+- Spring Data JPA
+- PostgreSQL (em produção)
+- Railway (Deploy)
+- GitHub
+
+---
+
+## 🌐 Deploy na Railway
+
+O projeto foi configurado para deploy automático na [Railway](https://railway.app), com integração ao GitHub.  
+Durante o período gratuito, o ambiente foi criado com sucesso e chegou a compilar parcialmente, mas o trial expirou.
+
+> 🔐 *A aplicação está atualmente inativa devido ao fim do período gratuito.*
+
+
+---
+
+## 📁 Como rodar localmente
+
+1. Clone o repositório
+```bash
+git clone https://github.com/BrunoBarrosR/dslist.git
+```
+
+
 ## Modelo de domínio DSList
 
 ![Modelo de domínio DSList](https://raw.githubusercontent.com/devsuperior/java-spring-dslist/main/resources/dslist-model.png)
