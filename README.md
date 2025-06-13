@@ -1,30 +1,38 @@
-# Projeto DSList - Intensivão Java Spring
+# 🕹️ Projeto DSLIST
 
-**1. Perdeu alguma aula ou material de apoio?**
+Uma aplicação Java com Spring Boot desenvolvida para listar jogos e organizá-los em listas personalizadas.  
+Foi parte de um estudo prático de APIs REST, deploy em nuvem e integração contínua.
 
-Inscreva-se para receber os conteúdos no seu email:
+---
 
-https://devsuperior.com.br
+## 🚀 Tecnologias utilizadas
 
-    ATENÇÃO: os conteúdos ficarão disponíveis somente até domingo. Então organize-se, e bora pra cima! 
+- Java 17
+- Spring Boot
+- Spring Data JPA
+- PostgreSQL (em produção)
+- Railway (Deploy)
+- GitHub
 
-**2. Tem alguma dúvida?**
+---
 
-Envie uma mensagem pra gente no email que chegou pra você no ato da sua inscrição.
+## 🌐 Deploy na Railway
 
-## Calendário
+O projeto foi configurado para deploy automático na [Railway](https://railway.app), com integração ao GitHub.  
+Durante o período gratuito, o ambiente foi criado com sucesso e chegou a compilar parcialmente, mas o trial expirou.
 
-Os conteúdos ficarão temporariamente disponíveis no nosso website.
+> 🔐 *A aplicação está atualmente inativa devido ao fim do período gratuito.*
 
-Horário: cada aula será liberada por volta das 9h, somente para quem estiver inscrito no treinamento. Fica de olho no seu email, Whatsapp ou Telegram.
 
-| Dia / horário  | Conteúdo |
-| ------------- | ------------- |
-| Segunda-feira 9h | Aula 1: Projeto estruturado |
-| Terça-feira 9h | Aula 2: Domínio e consultas |
-| Quarta-feira 9h | Aula 3: Homologação e CORS |
-| Quinta-feira 9h | Aula 4: Endpoint especial |
-| Sexta-feira 9h | Aula 5: Resumão e reforço do aprendizado
+---
+
+## 📁 Como rodar localmente
+
+1. Clone o repositório
+```bash
+git clone https://github.com/BrunoBarrosR/dslist.git
+```
+
 
 ## Modelo de domínio DSList
 
@@ -176,5 +184,51 @@ INSERT INTO tb_belonging (list_id, game_id, position) VALUES (2, 10, 4);
 ```
 
 ### Script Docker Compose
+
+```
+version: "3.7"
+services:
+  # ====================================================================================================================
+  # POSTGRES SERVER
+  # ====================================================================================================================
+  pg-docker:
+    image: postgres:14-alpine
+    container_name: dev-postgresql
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_PASSWORD: 1234567
+    ports:
+      - 5433:5432
+    volumes:
+      - ./.data/postgresql/data:/var/lib/postgresql/data
+    networks:
+      - dev-network
+  # ====================================================================================================================
+  # PGADMIN
+  # ====================================================================================================================
+  pgadmin-docker:
+    image: dpage/pgadmin4
+    container_name: dev-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: me@example.com
+      PGADMIN_DEFAULT_PASSWORD: 1234567
+    ports:
+      - 5050:80
+    volumes:
+      - ./.data/pgadmin:/var/lib/pgadmin
+    depends_on:
+      - pg-docker
+    networks:
+      - dev-network
+# ======================================================================================================================
+# REDE
+# ======================================================================================================================
+networks:
+  dev-network:
+    driver: bridge
+
+```
+
+
 
 https://gist.github.com/acenelio/5e40b27cfc40151e36beec1e27c4ff71
