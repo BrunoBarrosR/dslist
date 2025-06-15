@@ -10,6 +10,7 @@ Foi parte de um estudo prático de APIs REST, deploy em nuvem e integração con
 - Java 17
 - Spring Boot
 - Spring Data JPA
+- H2 (em teste)
 - PostgreSQL (em produção)
 - Railway (Deploy)
 - GitHub
@@ -19,9 +20,6 @@ Foi parte de um estudo prático de APIs REST, deploy em nuvem e integração con
 ## 🌐 Deploy na Railway
 
 O projeto foi configurado para deploy automático na [Railway](https://railway.app), com integração ao GitHub.  
-Durante o período gratuito, o ambiente foi criado com sucesso e chegou a compilar parcialmente, mas o trial expirou.
-
-> 🔐 *A aplicação está atualmente inativa devido ao fim do período gratuito.*
 
 
 ---
@@ -230,5 +228,3 @@ networks:
 ```
 
 
-
-https://gist.github.com/acenelio/5e40b27cfc40151e36beec1e27c4ff71
